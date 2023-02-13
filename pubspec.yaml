@@ -1,0 +1,102 @@
+name: nan_aptipro_sampling_2023
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  #CORE
+  logger: ^1.1.0
+  flutter_modular: ^5.0.3
+  equatable: ^2.0.3
+  rxdart: ^0.27.5
+  collection: ^1.16.0
+  path_provider: ^2.0.11
+  fuzzy: ^0.4.0-nullsafety.0
+  flinq: 2.0.2
+  flutter_secure_storage: ^5.1.0
+  url_strategy: ^0.2.0
+  very_good_infinite_list: ^0.4.1
+
+  #LOGIC
+  dartz: ^0.10.1
+  flutter_bloc: ^8.0.0
+
+  flutter_spinkit: ^5.1.0
+  auto_size_text_field: ^1.0.1
+  animate_do: ^2.0.0
+  cached_network_image: ^3.1.2
+  rive_loading: ^0.1.3
+  rive: ^0.9.1
+  flutter_iconly: ^1.0.2
+  progress_indicators: ^1.0.0
+
+  #SERVICE
+  fluttertoast: ^8.0.9
+  another_flushbar: ^1.10.29
+  flutter_smart_dialog: ^4.5.4+2
+  asuka: ^2.0.1
+  image_picker: ^0.8.5+3
+  photo_view: ^0.14.0
+  camera: ^0.10.0
+  camera_avfoundation: ^0.9.8+2
+  flutter_launcher_icons: ^0.9.2
+  intl: ^0.17.0
+  permission_handler: ^10.0.0
+  #HTTP
+  dio: ^4.0.6
+  http: ^0.13.5
+  http_parser: 4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.2.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+  fonts:
+    - family: Helvetica-bold
+      fonts:
+        - asset: assets/fonts/helveticaneuebold.ttf
+
+    - family: Helvetica-regular
+      fonts:
+        - asset: assets/fonts/helveticaneue.ttf
+
+    - family: Helvetica-light
+      fonts:
+        - asset: assets/fonts/helveticaneuelight.ttf
+
+    - family: Helvetica-medium
+      fonts:
+        - asset: assets/fonts/helveticaneuemedium.ttf
+
+    - family: FuturaMd
+      fonts:
+        - asset: assets/fonts/FuturaMd.ttf
+
+    - family: UTMBebas
+      fonts:
+        - asset: assets/fonts/UTM Bebas.ttf
