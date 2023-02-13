@@ -83,14 +83,14 @@ class _HomePageState extends State<HomePage> {
 
   void _onFocusChange() {
     if (_phoneFocus.hasFocus) {
-      if (_nameCtl.text.isEmpty) {
+      if (_nameCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == '') {
         showToast(message: 'Vui lòng nhập tên khách hàng trước', color: kRedColor);
         FocusScope.of(context).requestFocus(_nameFocus);
         return;
       }
     }
     if (_otpFocus.hasFocus) {
-      if (_nameCtl.text.isEmpty) {
+      if (_nameCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == '') {
         showToast(message: 'Vui lòng nhập tên khách hàng trước', color: kRedColor);
         FocusScope.of(context).requestFocus(_nameFocus);
         return;
@@ -425,6 +425,7 @@ class _HomePageState extends State<HomePage> {
                                     focus: _nameFocus,
                                     validated: form.nameValid,
                                     formatter: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.deny(RegExp("[<>%\$]")),
                                       LengthLimitingTextInputFormatter(50),
                                     ],
                                     nextFocus: _phoneFocus,
@@ -503,10 +504,16 @@ class _HomePageState extends State<HomePage> {
                         child: InkWell(
                           onTap: () {
                             FocusManager.instance.primaryFocus?.unfocus();
-                            if(_nameCtl.text.isEmpty){
+                            if(_nameCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == ''){
                               showMessage(
                                   type: DialogType.warning,
                                   message: 'Vui Lòng nhập tên khách hàng');
+                              return;
+                            }
+                            if(!form.nameValid){
+                              showMessage(
+                                  type: DialogType.warning,
+                                  message: 'Tên khách hàng không hợp lệ');
                               return;
                             }
                             if(_phoneCtl.text.isEmpty){

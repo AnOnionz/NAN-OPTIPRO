@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flinq/flinq.dart';
@@ -97,8 +98,6 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       required String phone,
       required String otp,
       required List<Uint8List> images}) async {
-
-
     // final url = ApiProvider.apiBaseUrl + 'customers';
     // final request = http.MultipartRequest('POST', Uri.parse(url));
     // request
@@ -146,12 +145,12 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       'outletId': outletId,
       'otp': otp,
       'files': images.mapList(
-        (image) => MultipartFile.fromBytes(
-          image,
-          contentType: MediaType('image', 'JPG'),
-          filename: outletId.toString() +
-              (DateTime.now().millisecondsSinceEpoch ~/ 1000).toString() +'.JPG'
-        ),
+        (image) => MultipartFile.fromBytes(image,
+            contentType: MediaType('image', 'JPG'),
+            filename: outletId.toString() +
+                Random().nextInt(999).toString() +
+                (DateTime.now().millisecondsSinceEpoch ~/ 1000).toString() +
+                '.JPG'),
       ),
     });
 

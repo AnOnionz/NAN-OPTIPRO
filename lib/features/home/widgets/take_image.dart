@@ -43,13 +43,12 @@ class _TakeImageState extends State<TakeImage> {
         source: ImageSource.camera,
         maxHeight: 720,
         maxWidth: 1280,
-        imageQuality: getOSInsideWeb() == 'Ios' ? 40 : 80,
+        imageQuality: getOSInsideWeb() == 'Ios' ? 45 : 80,
 
     );
     if (pickedFile != null) {
       //final bytes = await pickedFile.readAsBytes();
       final file = await pickedFile.readAsBytes();
-      print(basename(pickedFile.path));
       images.add(file);
       widget.onTake(images);
       setState(() {});
@@ -61,7 +60,7 @@ class _TakeImageState extends State<TakeImage> {
         source: ImageSource.camera,
         maxHeight: 720,
         maxWidth: 1280,
-        imageQuality: getOSInsideWeb() == 'Ios' ? 40 : 80,
+        imageQuality: getOSInsideWeb() == 'Ios' ? 45 : 80,
     );
     if (pickedFile != null) {
       //final bytes = await pickedFile.readAsBytes();
