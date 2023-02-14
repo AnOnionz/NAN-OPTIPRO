@@ -21,7 +21,7 @@ class ValidateBloc extends Bloc<ValidateEvent, ValidateState> {
       : super(ValidateState.init()) {
     on<Validated>((event, emit) async {
       if (event.name != state.name) {
-        if (event.name.isNotEmpty && event.name != '') {
+        if (event.name.isNotEmpty || event.name.replaceAll(' ', '') == '') {
           if(event.name.replaceAllMapped(REGEX_EMOJI, (match) => '*').contains('*')){
             emit(state.copyWith(name: event.name, nameValidate: false));
           }else{

@@ -16,7 +16,7 @@ part 'dashboard_state.dart';
 class DashboardCubit extends Cubit<DashboardState> {
   final FetchOutletsUseCase fetchOutlets;
   final FetchOutletUseCase fetchOutlet;
-  DashboardCubit({required this.fetchOutlets, required this.fetchOutlet}) : super(DashboardInitial());
+  DashboardCubit({required this.fetchOutlets, required this.fetchOutlet}) : super(DashboardSuccess([], false));
 
     void getOutlets({required Filter filter, bool loadMore = false}) async {
       if (!loadMore) {

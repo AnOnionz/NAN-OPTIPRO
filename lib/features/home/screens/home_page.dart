@@ -507,7 +507,7 @@ class _HomePageState extends State<HomePage> {
                             if(_nameCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == ''){
                               showMessage(
                                   type: DialogType.warning,
-                                  message: 'Vui Lòng nhập tên khách hàng');
+                                  message: 'Vui lòng nhập tên khách hàng');
                               return;
                             }
                             if(!form.nameValid){
@@ -516,28 +516,37 @@ class _HomePageState extends State<HomePage> {
                                   message: 'Tên khách hàng không hợp lệ');
                               return;
                             }
-                            if(_phoneCtl.text.isEmpty){
+                            if(_phoneCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == ''){
                               showMessage(
                                   type: DialogType.warning,
-                                  message: 'Vui Lòng nhập sđt khách hàng');
+                                  message: 'Vui lòng nhập sđt khách hàng');
+                              return;
+                            }
+                            if (_phoneCtl.text.isEmpty ||
+                                _phoneCtl.text.length != 10 ||
+                                !RegExp(r'^0[^01]([0-9]+)')
+                                    .hasMatch(_phoneCtl.text)) {
+                              showMessage(
+                                  type: DialogType.warning,
+                                  message: 'Số điện thoại không hợp lệ');
                               return;
                             }
                             if(_otpCtl.text.isEmpty){
                               showMessage(
                                   type: DialogType.warning,
-                                  message: 'Vui Lòng nhập mã OTP');
+                                  message: 'Vui lòng nhập mã OTP');
                               return;
                             }
                             if (_otpCtl.text.length < 4) {
                               showMessage(
                                   type: DialogType.warning,
-                                  message: 'Vui Lòng nhập mã OTP 4 số');
+                                  message: 'Vui lòng nhập mã OTP 4 số');
                               return;
                             }
                             if (_images.length < 2) {
                               showMessage(
                                   type: DialogType.warning,
-                                  message: 'Vui Lòng chụp ít nhất 2 hình');
+                                  message: 'Vui lòng chụp ít nhất 2 hình');
                               return;
                             }
                             if (!isSending) {

@@ -134,7 +134,7 @@ class _State extends State<DashboardPage> with SingleTickerProviderStateMixin {
                       if (_outlets.isEmpty) {
                         return Center(
                           child: Text(
-                            'Không có outlet nào',
+                            'Không tìm thấy outlet',
                             style: kStyleGrey16Regular,
                           ),
                         );
@@ -151,67 +151,70 @@ class _State extends State<DashboardPage> with SingleTickerProviderStateMixin {
                         ),
                         itemBuilder: (context, index) {
                           final e = _outlets[index];
-                          return InkWell(
-                            borderRadius: BorderRadius.circular(12.0),
-                            onTap: () {
-                              if (Modular.to.path.contains('edit')) {
-                                Modular.to.pushNamedAndRemoveUntil(
-                                    '/${e.id}/edit/form',
-                                    arguments: e,
-                                    (p0) => false);
-                                return;
-                              }
-                              Modular.to.pushNamedAndRemoveUntil(
-                                  '/${e.id}/form', arguments: e, (p0) => false);
-                            },
-                            child: Material(
-                              elevation: 5,
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: InkWell(
                               borderRadius: BorderRadius.circular(12.0),
-                              child: Container(
-                                padding: const EdgeInsets.all(4.0),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                    color: Colors.white),
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                        width: 100,
-                                        child: Image.asset(
-                                          'assets/images/outlet.png',
-                                          height: 80,
-                                        )),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            e.name,
-                                            style: kStyleBlack16Bold,
-                                          ),
-                                          const SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            'Mã outlet: ${e.code}',
-                                            style: kStyleBlack14Regular,
-                                          ),
-                                          const SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            'Địa chỉ: ${e.address}',
-                                            style: kStyleBlack14Regular,
-                                          ),
-                                          const SizedBox(
-                                            height: 5,
-                                          ),
-                                        ],
+                              onTap: () {
+                                if (Modular.to.path.contains('edit')) {
+                                  Modular.to.pushNamedAndRemoveUntil(
+                                      '/${e.id}/edit/form',
+                                      arguments: e,
+                                      (p0) => false);
+                                  return;
+                                }
+                                Modular.to.pushNamedAndRemoveUntil(
+                                    '/${e.id}/form', arguments: e, (p0) => false);
+                              },
+                              child: Material(
+                                elevation: 5,
+                                borderRadius: BorderRadius.circular(12.0),
+                                child: Container(
+                                  padding: const EdgeInsets.all(4.0),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      color: Colors.white),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          width: 100,
+                                          child: Image.asset(
+                                            'assets/images/outlet.png',
+                                            height: 80,
+                                          )),
+                                      Expanded(
+                                        flex: 3,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              e.name,
+                                              style: kStyleBlack16Bold,
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(
+                                              'Mã outlet: ${e.code}',
+                                              style: kStyleBlack14Regular,
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(
+                                              'Địa chỉ: ${e.address}',
+                                              style: kStyleBlack14Regular,
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
