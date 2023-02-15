@@ -140,6 +140,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     //     ));
     // }
     FormData _data = FormData.fromMap({
+      if(date != null) 'time': date.millisecondsSinceEpoch ~/ 1000,
       'phone': phone,
       'name': name,
       'outletId': outletId,
@@ -165,7 +166,10 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
     print(_data.files);
     print(_data.fields);
-
+    if(date != null){
+      await client.post(path: 'customers/edit', data: _data);
+      return true;
+    }
     await client.post(path: 'customers', data: _data);
     return true;
   }

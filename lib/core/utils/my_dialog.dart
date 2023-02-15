@@ -728,8 +728,10 @@ showCloseApp() async {
                 isDefaultAction: true,
                 onPressed: () {
                   closeDialog();
-                  SystemNavigator.pop(animated: true);
-                  exit(0);
+                  // SystemNavigator.pop(animated: true);
+                  // exit(0);
+                  SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+
                 },
                 child: const Text(
                   'Xác nhận',

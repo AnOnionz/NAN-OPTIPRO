@@ -105,6 +105,7 @@ class _HomePageState extends State<HomePage> {
   void _reset() {
     _validateBloc.add(ResetForm());
     setState(() {
+      _selectedDate = null;
       _nameCtl.clear();
       _phoneCtl.clear();
       _otpCtl.clear();
@@ -502,6 +503,14 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: InkWell(
                           onTap: () {
+                            if(widget.isEdit){
+                              if(_selectedDate == null){
+                                showMessage(
+                                    type: DialogType.warning,
+                                    message: 'Vui lòng chọn thời gian');
+                                return;
+                              }
+                            }
                             FocusManager.instance.primaryFocus?.unfocus();
                             if(_nameCtl.text.isEmpty || _nameCtl.text.replaceAll(' ', '') == ''){
                               showMessage(
@@ -553,6 +562,7 @@ class _HomePageState extends State<HomePage> {
                                 isSending = true;
                               });
                               _formCubit.sendForm(
+                                  date: _selectedDate,
                                   outletId: state.outlet.id,
                                   name: _nameCtl.text,
                                   phone: _phoneCtl.text,

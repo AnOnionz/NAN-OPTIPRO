@@ -153,7 +153,7 @@ class RepositoryImpl extends Repository {
   @override
   Future<Either<Failure, bool>> uploadData({required int outletId, DateTime? date, required String name, required String phone, required String otp, required List<Uint8List> images}) async {
     try {
-      final success = await remote.uploadData(outletId: outletId, name: name, phone: phone, otp: otp, images: images);
+      final success = await remote.uploadData(outletId: outletId, date: date, name: name, phone: phone, otp: otp, images: images);
       return Right(success);
     } on InternetException catch (_) {
       return const Left(InternetFailure());

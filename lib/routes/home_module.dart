@@ -66,9 +66,9 @@ class HomeModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => AuthenticateWidget(child: DashboardPage())),
-    ChildRoute('/:id/form', child: (_, args) => AuthenticateWidget(child: HomePage(isEdit: false, outletId: args.params['id'],))),
-    // ChildRoute('/edit', child: (_, args) => AuthenticateWidget(child: DashboardPage())),
-    // ChildRoute('/edit/form', child: (_, args) => AuthenticateWidget(child: HomePage(isEdit: true,))),
+    ChildRoute('/:id/form', child: (_, args) => AuthenticateWidget(child: HomePage(isEdit: false, outletId: args.params['id']))),
+    ChildRoute('/edit', child: (_, args) => AuthenticateWidget(child: DashboardPage())),
+    ChildRoute('/edit/:id/form', child: (_, args) => AuthenticateWidget(child: HomePage(isEdit: true,outletId: args.params['id']))),
     ChildRoute('/setting', child: (_, args) => AuthenticateWidget(child: SettingPage())),
     ChildRoute('/image', child: (_, args) => const CameraPage()),
   ];

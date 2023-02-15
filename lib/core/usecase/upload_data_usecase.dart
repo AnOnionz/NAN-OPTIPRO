@@ -11,16 +11,17 @@ class UploadDataUseCase implements UseCase<bool, UploadDataParams> {
   UploadDataUseCase({required this.repository});
   @override
   Future<Either<Failure, bool>> call(UploadDataParams params) async {
-    return await repository.uploadData(outletId: params.outletId, name: params.name, phone: params.phone, otp: params.otp, images: params.images);
+    return await repository.uploadData(outletId: params.outletId, date: params.date, name: params.name, phone: params.phone, otp: params.otp, images: params.images);
   }
 }
 
 class UploadDataParams extends Params {
+  final DateTime? date;
   final String phone;
   final String name;
   final int outletId;
   final String otp;
   final List<Uint8List> images;
 
-  UploadDataParams({required this.phone, required this.name, required this.outletId, required this.otp, required this.images});
+  UploadDataParams({required this.date, required this.phone, required this.name, required this.outletId, required this.otp, required this.images});
 }

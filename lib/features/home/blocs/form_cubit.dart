@@ -23,6 +23,7 @@ class FormCubit extends Cubit<UploadFormState> {
     emit(FormLoading());
     showLoading();
     final execute = await uploadData(UploadDataParams(
+        date: date,
         phone: phone,
         name: name,
         images: images,

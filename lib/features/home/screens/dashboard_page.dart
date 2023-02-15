@@ -158,7 +158,7 @@ class _State extends State<DashboardPage> with SingleTickerProviderStateMixin {
                               onTap: () {
                                 if (Modular.to.path.contains('edit')) {
                                   Modular.to.pushNamedAndRemoveUntil(
-                                      '/${e.id}/edit/form',
+                                      '/edit/${e.id}/form',
                                       arguments: e,
                                       (p0) => false);
                                   return;

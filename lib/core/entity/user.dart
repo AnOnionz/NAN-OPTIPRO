@@ -21,6 +21,7 @@ class User extends Equatable {
       required this.birthday,
       required this.gender,
       required this.role});
+  
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
