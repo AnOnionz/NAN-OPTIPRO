@@ -12,6 +12,17 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'core/common/constants.dart';
 
+
+/*      |\ |\
+        \ \| |
+         \ | |
+       .--''/
+      /o     \
+      \      /
+       {>o<}='         */
+
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
@@ -23,6 +34,7 @@ Future<void> main() async {
     Bloc.observer = MyBlocObserver();
     runApp(ModularApp(module: AppModule(), child: const App()));
   });
+
 }
 
 class App extends StatelessWidget {
@@ -35,7 +47,7 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       key: navKey,
       debugShowCheckedModeBanner: false,
-      title: "NAN APTIPRO SAMPLING",
+      title: "NAN OPTIPRO SAMPLING",
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

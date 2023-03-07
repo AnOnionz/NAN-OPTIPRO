@@ -51,7 +51,7 @@ class _RefreshModalState extends State<RefreshModal> {
               closeDialog(tag: 'refresh_modal');
             },
             style: ElevatedButton.styleFrom(
-                primary: const Color(0xFFF1F1F1), elevation: 0),
+                backgroundColor: const Color(0xFFF1F1F1), elevation: 0),
             child: const Text(
               'Đóng',
               style: kStyleBlack17Regular,
